@@ -23,5 +23,10 @@ class UltimateSmsServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__.'/../config/ultimate_sms.php', 'ultimate_sms'
         );
+
+        // Bind the UltimateSms class to the 'ultimate_sms' key for the facade
+        $this->app->singleton('ultimate_sms', function ($app) {
+            return new UltimateSms();
+        });
     }
 }

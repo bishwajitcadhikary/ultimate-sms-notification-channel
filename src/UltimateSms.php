@@ -3,7 +3,6 @@
 namespace UltimateSmsNotificationChannel;
 
 use Exception;
-use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 
@@ -21,6 +20,13 @@ class UltimateSms
     {
         $baseUrl = Config::get('ultimate_sms.base_url');
         $apiKey = Config::get('ultimate_sms.api_key');
+
+        if (empty($baseUrl)) {
+            throw new Exception('Ultimate SMS base_url is not set. Please set ULTIMATE_SMS_BASE_URL in your .env.');
+        }
+        if (empty($apiKey)) {
+            throw new Exception('Ultimate SMS api_key is not set. Please set ULTIMATE_SMS_API_KEY in your .env.');
+        }
 
         $request = Http::baseUrl($baseUrl)
             ->withHeaders([

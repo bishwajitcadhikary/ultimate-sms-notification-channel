@@ -42,8 +42,8 @@ public function via($notifiable)
 
 public function toUltimateSms($notifiable)
 {
-    return UltimateSmsMessage::create('This is a test message')
-        ->to('31612345678');
+    return (new UltimateSmsMessage())
+        ->content('This is a test message');
 }
 ```
 
@@ -65,6 +65,21 @@ UltimateSmsMessage::create('This is a test message')
     ->to('31612345678,880172145789');
 ```
 
+### Using the Facade Directly
+
+You can send an SMS directly using the facade if you want to bypass Laravel's notification system:
+
+```php
+use UltimateSmsNotificationChannel\Facades\UltimateSms;
+
+UltimateSms::send([
+    'recipient' => '+8801322635808',
+    'message' => 'Hello',
+    'sender_id' => 'HaQuick',
+    'type' => 'plain',
+]);
+```
+
 ### Optional Parameters
 - `sender_id`: Override the default sender ID.
 - `type`: Set the message type (default: `plain`).
@@ -75,8 +90,4 @@ UltimateSmsMessage::create('This is a test message')
 
 ```bash
 vendor/bin/pest
-```
-
----
-
-For more information, visit [Frolax SMS](https://sms.frolax.net) 
+``` 
