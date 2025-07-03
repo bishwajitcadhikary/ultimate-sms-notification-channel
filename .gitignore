@@ -1,0 +1,8 @@
+vendor/
+.env
+.phpunit.result.cache
+.phpunit.cache
+.DS_Store
+.idea/
+node_modules/
+composer.lock

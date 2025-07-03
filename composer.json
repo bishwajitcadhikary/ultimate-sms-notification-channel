@@ -1,0 +1,48 @@
+{
+    "name": "frolax/ultimate-sms-notification-channel",
+    "description": "Laravel notification channel for Ultimate SMS",
+    "homepage": "https://github.com/bishwajitcadhikary/ultimate-sms-notification-channel",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bishwajit Adhikary",
+            "email": "bishwajitcadhikary@gmail.com",
+            "homepage": "https://bishwajitadhikary.com"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "illuminate/notifications": "^8.0|^9.0|^10.0|^11.0|^12.0",
+        "illuminate/support": "^8.0|^9.0|^10.0|^11.0|^12.0"
+    },
+    "require-dev": {
+        "pestphp/pest": "^2.0",
+        "orchestra/testbench": "^8.0",
+        "laravel/pint": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "UltimateSmsNotificationChannel\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "UltimateSmsNotificationChannel\\UltimateSmsServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
